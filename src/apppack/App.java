@@ -49,11 +49,22 @@ public class App {
         Predicate<String> methodRef2 = str::startsWith; // method reference
         Predicate<String> lambda2 = s -> s.startsWith(s); // lambda-expression
 
-        Function<Object,String> f1 = String::valueOf;
-        Function<Object,String> f2 = (obj)-> (obj == null) ? "null" : obj.toString();
+        Function<Object, String> f1 = String::valueOf;
+        Function<Object, String> f2 = (obj) -> (obj == null) ? "null" : obj.toString();
 
         Supplier<String> methodRef4 = String::new;
-        Supplier<String> lambda4 = ()->new String();
+        Supplier<String> lambda4 = () -> new String();
+
+        //() -> Math.random() * 100;
+        //() -> 123;
+
+        Arithmetic ar = new Arithmetic();
+        //ar.arithSchema1();
+        System.out.println(ar.arithSchema1());
+        //ar.equatSchema1();
+        System.out.println(ar.equatSchema1());
+
+        
     }
 
     private static boolean isGreaterTime(LocalTime time, Duration duration) {
