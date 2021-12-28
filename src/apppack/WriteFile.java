@@ -12,7 +12,7 @@ public class WriteFile {
         this.wrstr = wrstr;
 
         FileWriter fwr = null;
-        String string = "Adding ...";
+        String string = "Добавляем ...";
         File file = new File("src/write.txt");
 
         try {

@@ -17,6 +17,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class App {
     public static void main(String[] args) {
@@ -46,7 +49,7 @@ public class App {
         System.out.println(p.getProperty(sysprop));
 
         try {
-            Stream<String> lines = Files.lines(Paths.get("src/read.txt"));
+            Stream<String> lines = Files.lines(Paths.get("src/some.txt"));
             Stream<Path> list = Files.list(Paths.get("./"));
             Stream<Path> walk = Files.walk(Paths.get("./"), 3);
             lines.forEach(System.out::print);
@@ -118,6 +121,7 @@ public class App {
             System.err.println("Во время записи возникла ошибка...");
             e.printStackTrace();
         }
+
         // отдельным потоком запишем в файл
         // выделим запись в отдельный поток
         WriteFile wr = new WriteFile();
@@ -132,7 +136,7 @@ public class App {
 
         // выделим чтение в отдельный поток
         Runnable r = () -> {
-            System.out.printf("%s started... \n", Thread.currentThread().getName());
+            System.out.printf("%s запустился... \n", Thread.currentThread().getName());
             try {
                 Thread.sleep(100);
                 rf.trueReader();
@@ -140,8 +144,8 @@ public class App {
                 System.out.println("Thread has been interrupted");
                 e.printStackTrace();
             }
-            System.out.printf("%s finished... \n", Thread.currentThread().getName());
-     
+            System.out.printf("%s завершился... \n", Thread.currentThread().getName());
+        };
         Thread fileReader = new Thread(r, "Читатель");
         fileReader.start();
         System.out.println("Main thread finished...");
@@ -189,6 +193,7 @@ public class App {
         System.out.println(ar.arithSchema1());
         //ar.equatSchema1();
         System.out.println(ar.equatSchema1());
+
     }
 
     private static boolean isGreaterTime(LocalTime time, Duration duration) {

@@ -13,6 +13,6 @@ public class Event {
         this.timeTag = timeTag;
         this.description = description;
 
-        System.out.printf("Generated %s", id.toString());
+        System.out.printf("Сгенерировано %s", id.toString());
     }
 }
