@@ -57,12 +57,12 @@ public class App {
         System.out.println("\nТак мы генерируем один раз уникальный ID");
         CreateID cri = new CreateID();
         cri.createID();
-        //
+
         System.out.println("Так мы генерируем целую пачку UID'ов");
         Stream<Event> generateUID = Stream.generate(() -> new Event(UUID.randomUUID(), LocalDateTime.now(), ""));
         // так поток будет распечатываться бесконечно долго
         //generate.forEach(System.out::print);
-        // и его вывод нужно ограничить. Распечатаем только первые 10 элементов
+        // и его вывод нужно ограничить и выбрать только первые 10 элементов
         System.out.println(generateUID.limit(10).collect(Collectors.toList()));
         // попробуем поток обработать еще раз и посмотрим что получится
         try {
@@ -142,11 +142,10 @@ public class App {
         fileReader.start();
 
         LocalDate date2 = LocalDate.of(1979, 9, 26);
-        Period period = Period.ofYears(40);
-        System.out.println(date2.plus(period));
-
         LocalTime time2 = LocalTime.of(10, 30);
         Duration duration2 = Duration.ofMinutes(15);
+        Period period = Period.ofYears(43); //а, вот, через 43 года ...
+        System.out.println("День варенья " + date2.plus(period));
         System.out.println(time2.plus(duration2));
 
         // 4 типа method reference
