@@ -13,7 +13,6 @@
 
 https://github.com/sitek79/skillfactory_lambda_task_15.7.7.git
 
-or create a new repository on the command line
 echo "# skillfactory_lambda_task_15.7.7" >> README.md
 git init
 git add README.md
