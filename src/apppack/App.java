@@ -17,9 +17,6 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class App {
     public static void main(String[] args) {
@@ -121,7 +118,6 @@ public class App {
             System.err.println("Во время записи возникла ошибка...");
             e.printStackTrace();
         }
-
         // отдельным потоком запишем в файл
         // выделим запись в отдельный поток
         WriteFile wr = new WriteFile();
@@ -145,7 +141,7 @@ public class App {
                 e.printStackTrace();
             }
             System.out.printf("%s finished... \n", Thread.currentThread().getName());
-        };
+     
         Thread fileReader = new Thread(r, "Читатель");
         fileReader.start();
         System.out.println("Main thread finished...");
@@ -193,7 +189,6 @@ public class App {
         System.out.println(ar.arithSchema1());
         //ar.equatSchema1();
         System.out.println(ar.equatSchema1());
-
     }
 
     private static boolean isGreaterTime(LocalTime time, Duration duration) {
