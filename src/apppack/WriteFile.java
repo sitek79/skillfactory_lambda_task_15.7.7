@@ -12,13 +12,12 @@ public class WriteFile {
         this.wrstr = wrstr;
 
         FileWriter fwr = null;
-        String string = "Добавляем ...";
         File file = new File("src/write.txt");
 
         try {
             fwr = new FileWriter(file, true);
             //fileOutputStream = new FileOutputStream("C:\\Books_calibre\\2019\\Horstmann C.S. - Core Java. Vol. 2. (56)\\test_out.txt");
-            fwr.write(string);
+            fwr.write(wrstr);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -13,6 +13,8 @@
 
 https://github.com/sitek79/skillfactory_lambda_task_15.7.7.git
 
+Пулл реквесты принимаются в ветку: pull_requests
+
 echo "# skillfactory_lambda_task_15.7.7" >> README.md
 git init
 git add README.md

@@ -1,4 +1,4 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+A selectable channel that can send and receive UDP (User Datagram Protocol) packets.
+You can create datagram channels with different protocol families:
+Create channels for Internet Protocol sockets with the INET or INET6 protocol families.
+Create channels for UNIX Domain sockets with the UNIX protocol family.
